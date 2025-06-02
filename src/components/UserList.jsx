@@ -7,7 +7,8 @@ function UserList() {
   const [keyword,setKeyword] = useState("");
 
   useEffect(()=>{
-    async ()=>{
+
+   const fetch = async ()=>{
       try{
         const ag = await axios.get(
           "https://reqres.in/api/users?page=2",
@@ -22,6 +23,7 @@ function UserList() {
         console.log(e);
       }
     }
+    fetch();
   },[]);  
 
   const search = users.filter((u)=>{
